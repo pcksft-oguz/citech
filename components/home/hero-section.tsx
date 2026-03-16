@@ -30,9 +30,8 @@ export function HeroSection() {
           </h1>
 
           <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-industrial-foreground/70">
-            Fırçasız motor teknolojisi ve RedLithium-Ion batarya sistemiyle
-            tasarlanan CiTech aletleri; bayiler, yapı firmaları ve profesyoneller
-            için üretilmiştir. Smart Energy Management ile maksimum çalışma süresi.
+            Brushless motor ve RedLithium-Ion batarya teknolojisiyle donatılmış
+            CiTech güç makineleri, sahada fark yaratan performansı uygun maliyetle buluşturur.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">

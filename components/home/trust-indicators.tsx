@@ -1,7 +1,7 @@
 const stats = [
   { value: "21V", label: "Güçlü Voltaj Sistemi" },
-  { value: "500+", label: "Bayi Ortağı" },
-  { value: "40+", label: "Ülkede Dağıtım" },
+  { value: "65 Nm", label: "Maksimum Tork" },
+  { value: "2 Yıl", label: "Garanti Süresi" },
   { value: "BL", label: "Fırçasız Motor Teknolojisi" },
 ]
 
@@ -11,11 +11,11 @@ export function TrustIndicators() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-balance text-3xl font-bold tracking-tight text-industrial-foreground md:text-4xl">
-            Dünya Genelinde Profesyonellerin Güvendiği Marka
+            Profesyonel Güç, Uygun Fiyat
           </h2>
           <p className="mt-4 text-pretty text-industrial-foreground/60">
-            CiTech Tools, 21V sistemi ve brushless motor teknolojisiyle
-            güç aleti distribütörlerinin tercih ettiği küresel toptan ortağıdır.
+            CiTech Tools, 21V fırçasız motor teknolojisi ve RedLithium-Ion
+            batarya sistemiyle kaliteli güç aletlerini uygun fiyatla sunar.
           </p>
         </div>
 
