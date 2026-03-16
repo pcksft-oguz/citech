@@ -34,14 +34,23 @@ export function ProductGrid() {
                 </p>
                 <div className="mt-3 flex flex-wrap gap-2 text-xs text-muted-foreground">
                   <span className="rounded bg-secondary px-2 py-0.5">
-                    {product.specs.power}
-                  </span>
-                  <span className="rounded bg-secondary px-2 py-0.5">
                     {product.specs.voltage}
                   </span>
-                  <span className="rounded bg-secondary px-2 py-0.5">
-                    {product.specs.rpm} RPM
-                  </span>
+                  {product.specs.torque && (
+                    <span className="rounded bg-secondary px-2 py-0.5">
+                      {product.specs.torque}
+                    </span>
+                  )}
+                  {product.specs.battery && (
+                    <span className="rounded bg-secondary px-2 py-0.5">
+                      {product.specs.battery}
+                    </span>
+                  )}
+                  {!product.specs.torque && product.specs.rpm && (
+                    <span className="rounded bg-secondary px-2 py-0.5">
+                      {product.specs.rpm} RPM
+                    </span>
+                  )}
                 </div>
                 <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-primary">
                   Detayları Gör

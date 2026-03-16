@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ArrowLeft, Zap, Battery, Gauge, CircleDot, Weight, Wrench } from "lucide-react"
+import { ArrowLeft, Check } from "lucide-react"
 import { getProductBySlug, products } from "@/lib/products"
 
 export async function generateStaticParams() {
@@ -26,24 +26,6 @@ export async function generateMetadata({
   }
 }
 
-const specIcons = {
-  power: Zap,
-  voltage: Battery,
-  rpm: Gauge,
-  chuckSize: CircleDot,
-  weight: Weight,
-  usageType: Wrench,
-}
-
-const specLabels: Record<string, string> = {
-  power: "Güç",
-  voltage: "Voltaj",
-  rpm: "Devir Aralığı",
-  chuckSize: "Mandren Boyutu",
-  weight: "Ağırlık",
-  usageType: "Kullanım Tipi",
-}
-
 export default async function ProductDetailPage({
   params,
 }: {
@@ -55,6 +37,8 @@ export default async function ProductDetailPage({
   if (!product) {
     notFound()
   }
+
+  const isDetailedModel = !!product.specs.gearCount
 
   return (
     <>
@@ -98,29 +82,111 @@ export default async function ProductDetailPage({
                 <h2 className="text-lg font-semibold text-foreground">
                   Teknik Özellikler
                 </h2>
-                <div className="mt-4 grid grid-cols-2 gap-4">
-                  {Object.entries(product.specs).map(([key, value]) => {
-                    const Icon = specIcons[key as keyof typeof specIcons]
-                    return (
+
+                {isDetailedModel ? (
+                  /* Ci-701..706 için detaylı bullet-point spec listesi */
+                  <ul className="mt-4 space-y-2">
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>
+                        <span className="font-medium">Makine gerilimi:</span>{" "}
+                        {product.specs.voltage}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>
+                        <span className="font-medium">Vites sayısı:</span>{" "}
+                        {product.specs.gearCount}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>
+                        <span className="font-medium">Rölanti hızı Pozisyon I:</span>{" "}
+                        {product.specs.idleSpeedPos1}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>
+                        <span className="font-medium">Rölanti hızı Pozisyon II:</span>{" "}
+                        {product.specs.idleSpeedPos2}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>
+                        <span className="font-medium">Yüksüz hızı:</span>{" "}
+                        {product.specs.noLoadSpeed}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>
+                        <span className="font-medium">Tork:</span>{" "}
+                        {product.specs.torque}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>
+                        <span className="font-medium">Tork konumları:</span>{" "}
+                        {product.specs.torqueSettings}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span className="font-medium">Sağa / sola çevir</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span>
+                        <span className="font-medium">Matkap mandreni genişliği:</span>{" "}
+                        {product.specs.chuckSize}
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span className="font-medium">LED çalışma lambası</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-sm text-foreground">
+                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                      <span className="font-medium">Yumuşak kavrama</span>
+                    </li>
+                    {product.specs.battery && (
+                      <li className="flex items-start gap-2 text-sm text-foreground">
+                        <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                        <span>
+                          <span className="font-medium">Batarya kapasitesi:</span>{" "}
+                          {product.specs.battery}
+                        </span>
+                      </li>
+                    )}
+                  </ul>
+                ) : (
+                  /* Diğer ürünler için genel spec grid */
+                  <div className="mt-4 grid grid-cols-2 gap-3">
+                    {[
+                      { label: "Voltaj", value: product.specs.voltage },
+                      ...(product.specs.power ? [{ label: "Güç", value: product.specs.power }] : []),
+                      ...(product.specs.rpm ? [{ label: "Devir", value: product.specs.rpm + " RPM" }] : []),
+                      { label: "Mandren", value: product.specs.chuckSize },
+                      ...(product.specs.weight ? [{ label: "Ağırlık", value: product.specs.weight }] : []),
+                      ...(product.specs.usageType ? [{ label: "Kullanım", value: product.specs.usageType }] : []),
+                    ].map((spec) => (
                       <div
-                        key={key}
-                        className="flex items-start gap-3 rounded-lg border border-border bg-card p-4"
+                        key={spec.label}
+                        className="rounded-lg border border-border bg-card p-4"
                       >
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-primary/10">
-                          <Icon className="h-4 w-4 text-primary" />
-                        </div>
-                        <div>
-                          <p className="text-xs text-muted-foreground">
-                            {specLabels[key]}
-                          </p>
-                          <p className="text-sm font-semibold text-card-foreground">
-                            {value}
-                          </p>
-                        </div>
+                        <p className="text-xs text-muted-foreground">{spec.label}</p>
+                        <p className="mt-0.5 text-sm font-semibold text-card-foreground">
+                          {spec.value}
+                        </p>
                       </div>
-                    )
-                  })}
-                </div>
+                    ))}
+                  </div>
+                )}
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">

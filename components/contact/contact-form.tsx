@@ -18,11 +18,11 @@ export function ContactForm() {
           <Send className="h-6 w-6 text-primary" />
         </div>
         <h3 className="mt-4 text-xl font-semibold text-card-foreground">
-          Message Sent
+          Mesajınız İletildi
         </h3>
         <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-          Thank you for reaching out. Our team will get back to you within one
-          business day.
+          Bize ulaştığınız için teşekkürler. Ekibimiz en geç bir iş günü içinde
+          size geri dönecektir.
         </p>
       </div>
     )
@@ -40,7 +40,7 @@ export function ContactForm() {
               htmlFor="firstName"
               className="mb-1.5 block text-sm font-medium text-card-foreground"
             >
-              First Name
+              Ad
             </label>
             <input
               type="text"
@@ -48,7 +48,7 @@ export function ContactForm() {
               name="firstName"
               required
               className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="John"
+              placeholder="Adınız"
             />
           </div>
           <div>
@@ -56,7 +56,7 @@ export function ContactForm() {
               htmlFor="lastName"
               className="mb-1.5 block text-sm font-medium text-card-foreground"
             >
-              Last Name
+              Soyad
             </label>
             <input
               type="text"
@@ -64,7 +64,7 @@ export function ContactForm() {
               name="lastName"
               required
               className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="Smith"
+              placeholder="Soyadınız"
             />
           </div>
         </div>
@@ -75,7 +75,7 @@ export function ContactForm() {
               htmlFor="contactEmail"
               className="mb-1.5 block text-sm font-medium text-card-foreground"
             >
-              Email Address
+              E-posta
             </label>
             <input
               type="email"
@@ -83,7 +83,7 @@ export function ContactForm() {
               name="email"
               required
               className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="email@company.com"
+              placeholder="email@firma.com"
             />
           </div>
           <div>
@@ -91,14 +91,14 @@ export function ContactForm() {
               htmlFor="contactPhone"
               className="mb-1.5 block text-sm font-medium text-card-foreground"
             >
-              Phone Number
+              Telefon
             </label>
             <input
               type="tel"
               id="contactPhone"
               name="phone"
               className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="+1 234 567 8900"
+              placeholder="+90 5xx xxx xx xx"
             />
           </div>
         </div>
@@ -108,7 +108,7 @@ export function ContactForm() {
             htmlFor="subject"
             className="mb-1.5 block text-sm font-medium text-card-foreground"
           >
-            Subject
+            Konu
           </label>
           <select
             id="subject"
@@ -116,12 +116,12 @@ export function ContactForm() {
             required
             className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
           >
-            <option value="">Select a subject</option>
-            <option value="wholesale">Wholesale Pricing Inquiry</option>
-            <option value="product">Product Information</option>
-            <option value="dealer">Dealer Partnership</option>
-            <option value="support">Technical Support</option>
-            <option value="other">Other</option>
+            <option value="">Konu seçin</option>
+            <option value="wholesale">Toptan Fiyat Talebi</option>
+            <option value="product">Ürün Bilgisi</option>
+            <option value="dealer">Bayi Ortaklığı</option>
+            <option value="support">Teknik Destek</option>
+            <option value="other">Diğer</option>
           </select>
         </div>
 
@@ -130,7 +130,7 @@ export function ContactForm() {
             htmlFor="contactMessage"
             className="mb-1.5 block text-sm font-medium text-card-foreground"
           >
-            Message
+            Mesaj
           </label>
           <textarea
             id="contactMessage"
@@ -138,7 +138,7 @@ export function ContactForm() {
             rows={5}
             required
             className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-            placeholder="How can we help you?"
+            placeholder="Size nasıl yardımcı olabiliriz?"
           />
         </div>
 
@@ -146,7 +146,7 @@ export function ContactForm() {
           type="submit"
           className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
         >
-          Send Message
+          Mesaj Gönder
           <Send className="h-4 w-4" />
         </button>
       </div>
