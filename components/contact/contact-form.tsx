@@ -23,9 +23,11 @@ export function ContactForm() {
         body: JSON.stringify({
           firstName: formData.get("firstName"),
           lastName: formData.get("lastName"),
+          company: formData.get("company"),
           email: formData.get("email"),
           phone: formData.get("phone"),
           subject: formData.get("subject"),
+          currentBrands: formData.get("currentBrands"),
           message: formData.get("message"),
         }),
       })
@@ -100,6 +102,22 @@ export function ContactForm() {
           </div>
         </div>
 
+        <div>
+          <label
+            htmlFor="company"
+            className="mb-1.5 block text-sm font-medium text-card-foreground"
+          >
+            Firma
+          </label>
+          <input
+            type="text"
+            id="company"
+            name="company"
+            className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            placeholder="Firma adınız"
+          />
+        </div>
+
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
             <label
@@ -154,6 +172,22 @@ export function ContactForm() {
             <option value="support">Teknik Destek</option>
             <option value="other">Diğer</option>
           </select>
+        </div>
+
+        <div>
+          <label
+            htmlFor="currentBrands"
+            className="mb-1.5 block text-sm font-medium text-card-foreground"
+          >
+            Mevcut Bayilik Markalarınız
+          </label>
+          <input
+            type="text"
+            id="currentBrands"
+            name="currentBrands"
+            className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            placeholder="Örn: Bosch, Makita, DeWalt"
+          />
         </div>
 
         <div>

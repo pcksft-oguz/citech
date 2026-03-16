@@ -117,13 +117,6 @@ export default async function ProductDetailPage({
                     <li className="flex items-start gap-2 text-sm text-foreground">
                       <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       <span>
-                        <span className="font-medium">Yüksüz hızı:</span>{" "}
-                        {product.specs.noLoadSpeed}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-foreground">
-                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                      <span>
                         <span className="font-medium">Tork:</span>{" "}
                         {product.specs.torque}
                       </span>
@@ -154,11 +147,29 @@ export default async function ProductDetailPage({
                       <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       <span className="font-medium">Yumuşak kavrama</span>
                     </li>
+                    {product.specs.drillingSteel && (
+                      <li className="flex items-start gap-2 text-sm text-foreground">
+                        <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                        <span>
+                          <span className="font-medium">Delme çapı (çelik):</span>{" "}
+                          {product.specs.drillingSteel}
+                        </span>
+                      </li>
+                    )}
+                    {product.specs.drillingWood && (
+                      <li className="flex items-start gap-2 text-sm text-foreground">
+                        <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                        <span>
+                          <span className="font-medium">Delme çapı (ahşap):</span>{" "}
+                          {product.specs.drillingWood}
+                        </span>
+                      </li>
+                    )}
                     {product.specs.battery && (
                       <li className="flex items-start gap-2 text-sm text-foreground">
                         <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                         <span>
-                          <span className="font-medium">Batarya kapasitesi:</span>{" "}
+                          <span className="font-medium">Batarya:</span>{" "}
                           {product.specs.battery}
                         </span>
                       </li>

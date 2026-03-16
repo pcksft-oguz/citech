@@ -26,6 +26,7 @@ export function DealerForm() {
           email: formData.get("email"),
           phone: formData.get("phone"),
           country: formData.get("country"),
+          currentBrands: formData.get("currentBrands"),
           message: formData.get("message"),
         }),
       })
@@ -49,11 +50,11 @@ export function DealerForm() {
           <Send className="h-6 w-6 text-primary" />
         </div>
         <h3 className="mt-4 text-xl font-semibold text-card-foreground">
-          Application Submitted
+          Başvurunuz Alındı
         </h3>
         <p className="mt-2 max-w-sm text-sm text-muted-foreground">
-          Thank you for your interest. Our partnership team will review your
-          application and contact you within 2 business days.
+          İlginiz için teşekkürler. Ortaklık ekibimiz başvurunuzu inceleyip
+          en geç 2 iş günü içinde size geri dönecektir.
         </p>
       </div>
     )
@@ -70,7 +71,7 @@ export function DealerForm() {
             htmlFor="company"
             className="mb-1.5 block text-sm font-medium text-card-foreground"
           >
-            Company Name
+            Firma Adı
           </label>
           <input
             type="text"
@@ -78,7 +79,7 @@ export function DealerForm() {
             name="company"
             required
             className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-            placeholder="Your company name"
+            placeholder="Firma adınız"
           />
         </div>
 
@@ -87,7 +88,7 @@ export function DealerForm() {
             htmlFor="contact"
             className="mb-1.5 block text-sm font-medium text-card-foreground"
           >
-            Contact Person
+            Yetkili Kişi
           </label>
           <input
             type="text"
@@ -95,7 +96,7 @@ export function DealerForm() {
             name="contact"
             required
             className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-            placeholder="Full name"
+            placeholder="Ad Soyad"
           />
         </div>
 
@@ -105,7 +106,7 @@ export function DealerForm() {
               htmlFor="email"
               className="mb-1.5 block text-sm font-medium text-card-foreground"
             >
-              Email Address
+              E-posta
             </label>
             <input
               type="email"
@@ -113,7 +114,7 @@ export function DealerForm() {
               name="email"
               required
               className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="email@company.com"
+              placeholder="email@firma.com"
             />
           </div>
           <div>
@@ -121,14 +122,14 @@ export function DealerForm() {
               htmlFor="phone"
               className="mb-1.5 block text-sm font-medium text-card-foreground"
             >
-              Phone Number
+              Telefon
             </label>
             <input
               type="tel"
               id="phone"
               name="phone"
               className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-              placeholder="+1 234 567 8900"
+              placeholder="+90 5xx xxx xx xx"
             />
           </div>
         </div>
@@ -138,7 +139,7 @@ export function DealerForm() {
             htmlFor="country"
             className="mb-1.5 block text-sm font-medium text-card-foreground"
           >
-            Country
+            Ülke / Şehir
           </label>
           <input
             type="text"
@@ -146,7 +147,23 @@ export function DealerForm() {
             name="country"
             required
             className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-            placeholder="Your country"
+            placeholder="Ülke ve şehriniz"
+          />
+        </div>
+
+        <div>
+          <label
+            htmlFor="currentBrands"
+            className="mb-1.5 block text-sm font-medium text-card-foreground"
+          >
+            Mevcut Bayilik Markalarınız
+          </label>
+          <input
+            type="text"
+            id="currentBrands"
+            name="currentBrands"
+            className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            placeholder="Örn: Bosch, Makita, DeWalt"
           />
         </div>
 
@@ -155,14 +172,14 @@ export function DealerForm() {
             htmlFor="message"
             className="mb-1.5 block text-sm font-medium text-card-foreground"
           >
-            Message
+            Mesaj
           </label>
           <textarea
             id="message"
             name="message"
             rows={4}
             className="w-full rounded-md border border-input bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
-            placeholder="Tell us about your business and distribution needs..."
+            placeholder="İşletmeniz ve dağıtım ihtiyaçlarınız hakkında bilgi verin..."
           />
         </div>
 
@@ -177,12 +194,12 @@ export function DealerForm() {
         >
           {loading ? (
             <>
-              Submitting...
+              Gönderiliyor...
               <Loader2 className="h-4 w-4 animate-spin" />
             </>
           ) : (
             <>
-              Submit Application
+              Başvuru Gönder
               <Send className="h-4 w-4" />
             </>
           )}

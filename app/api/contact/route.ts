@@ -5,7 +5,7 @@ const resend = new Resend("re_PQABUxFm_EvdwssM5U2hE7zF6NeDhiw9i")
 
 export async function POST(request: Request) {
   try {
-    const { firstName, lastName, email, phone, subject, message } =
+    const { firstName, lastName, company, email, phone, subject, currentBrands, message } =
       await request.json()
 
     const subjectMap: Record<string, string> = {
@@ -24,9 +24,11 @@ export async function POST(request: Request) {
         <h2>Yeni İletişim Formu Mesajı</h2>
         <table style="border-collapse:collapse;width:100%">
           <tr><td style="padding:8px;font-weight:bold">Ad Soyad:</td><td style="padding:8px">${firstName} ${lastName}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Firma:</td><td style="padding:8px">${company || "Belirtilmedi"}</td></tr>
           <tr><td style="padding:8px;font-weight:bold">E-posta:</td><td style="padding:8px">${email}</td></tr>
           <tr><td style="padding:8px;font-weight:bold">Telefon:</td><td style="padding:8px">${phone || "Belirtilmedi"}</td></tr>
           <tr><td style="padding:8px;font-weight:bold">Konu:</td><td style="padding:8px">${subjectMap[subject] || subject}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold">Mevcut Bayilik Markaları:</td><td style="padding:8px">${currentBrands || "Belirtilmedi"}</td></tr>
           <tr><td style="padding:8px;font-weight:bold">Mesaj:</td><td style="padding:8px">${message}</td></tr>
         </table>
       `,
