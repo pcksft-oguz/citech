@@ -57,7 +57,7 @@ export const products: Product[] = [
     category: "Darbeli Matkaplar",
     shortDescription: "21V, 65 Nm tork, 13mm mandren ve 4.0Ah yüksek kapasiteli batarya ile tam gün performans.",
     description: "CiTech Ci-702 Akülü Darbeli Matkap, yüksek kapasiteli 4.0Ah bataryasıyla tam gün kesintisiz çalışma imkânı sunar. Fırçasız motor teknolojisi, standart fırçalı motorlara kıyasla %50 daha uzun motor ömrü ve daha yüksek verimlilik sağlar. 13mm mandren kapasitesi ve 65 Nm maksimum tork ile geniş uygulama yelpazesinde hassas kontrol imkânı tanır. LED çalışma lambası ve ileri/geri dönüş özelliği standart donanımdır.",
-    image: "/images/products/citech-product-4.jpeg",
+    image: "/images/products/citech-product-6.jpeg",
     specs: {
       voltage: "21V",
       gearCount: "2",
@@ -74,7 +74,7 @@ export const products: Product[] = [
   },
   {
     id: "3",
-    name: "CiTech Ci-703 Akülü Darbeli Matkap",
+    name: "CiTech Ci-703 Akülü Matkap",
     slug: "citech-ci-703",
     category: "Darbeli Matkaplar",
     shortDescription: "21V güç, 65 Nm tork, 13mm mandren ve 2.0Ah batarya – hafif ve güçlü performans.",
@@ -96,7 +96,7 @@ export const products: Product[] = [
   },
   {
     id: "4",
-    name: "CiTech Ci-704 Akülü Darbeli Matkap",
+    name: "CiTech Ci-704 Akülü Matkap",
     slug: "citech-ci-704",
     category: "Darbeli Matkaplar",
     shortDescription: "21V güç, 65 Nm tork, 13mm mandren ve 4.0Ah batarya – ağır iş sahası koşulları için endüstriyel performans.",
@@ -118,7 +118,7 @@ export const products: Product[] = [
   },
   {
     id: "5",
-    name: "CiTech Ci-705 Akülü Darbeli Matkap",
+    name: "CiTech Ci-705 Akülü Matkap",
     slug: "citech-ci-705",
     category: "Darbeli Matkaplar",
     shortDescription: "Kompakt 18V sistem, 65 Nm tork, 10mm mandren – hafif ve dengeli performans.",
