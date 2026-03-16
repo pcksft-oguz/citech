@@ -123,13 +123,6 @@ export default async function ProductDetailPage({
                     </li>
                     <li className="flex items-start gap-2 text-sm text-foreground">
                       <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                      <span>
-                        <span className="font-medium">Tork konumları:</span>{" "}
-                        {product.specs.torqueSettings}
-                      </span>
-                    </li>
-                    <li className="flex items-start gap-2 text-sm text-foreground">
-                      <span className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       <span className="font-medium">Sağa / sola çevir</span>
                     </li>
                     <li className="flex items-start gap-2 text-sm text-foreground">
