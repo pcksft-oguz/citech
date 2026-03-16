@@ -148,7 +148,7 @@ export default function ContactPage() {
           <div className="aspect-[2/1] overflow-hidden rounded-lg border border-border bg-muted">
             <iframe
               title="CiTech Tools Konumu"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.5!2d28.9095!3d41.0082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAwJzI5LjUiTiAyOMKwNTQnMzQuMiJF!5e0!3m2!1str!2str!4v1700000000000"
+              src="https://maps.google.com/maps?q=Nefin+%C4%B0stanbul+C2+Blok,+Maltepe+Mah.+Askeri+F%C4%B1r%C4%B1n+%C3%87%C4%B1kmaz%C4%B1,+Zeytinburnu+%C4%B0stanbul+34025&t=&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}

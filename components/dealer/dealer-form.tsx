@@ -1,14 +1,45 @@
 "use client"
 
 import { useState } from "react"
-import { Send } from "lucide-react"
+import { Send, Loader2 } from "lucide-react"
 
 export function DealerForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setSubmitted(true)
+    setLoading(true)
+    setError("")
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    try {
+      const res = await fetch("/api/dealer", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          company: formData.get("company"),
+          contact: formData.get("contact"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          country: formData.get("country"),
+          message: formData.get("message"),
+        }),
+      })
+
+      if (!res.ok) {
+        throw new Error("Başvuru gönderilemedi")
+      }
+
+      setSubmitted(true)
+    } catch {
+      setError("Başvuru gönderilemedi. Lütfen tekrar deneyin.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   if (submitted) {
@@ -135,12 +166,26 @@ export function DealerForm() {
           />
         </div>
 
+        {error && (
+          <p className="text-sm text-red-500">{error}</p>
+        )}
+
         <button
           type="submit"
-          className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          disabled={loading}
+          className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
         >
-          Submit Application
-          <Send className="h-4 w-4" />
+          {loading ? (
+            <>
+              Submitting...
+              <Loader2 className="h-4 w-4 animate-spin" />
+            </>
+          ) : (
+            <>
+              Submit Application
+              <Send className="h-4 w-4" />
+            </>
+          )}
         </button>
       </div>
     </form>

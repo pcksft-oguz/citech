@@ -7,7 +7,7 @@ export function HeroSection() {
     <section className="relative overflow-hidden bg-industrial">
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-drill.jpg"
+          src="/images/hero-drill.png"
           alt="CiTech Tools – Master of Power"
           fill
           className="object-cover opacity-40"
