@@ -34,12 +34,12 @@ export function FeaturedProducts() {
               href={`/products/${product.slug}`}
               className="group overflow-hidden rounded-lg border border-border bg-card transition-all hover:border-primary/30 hover:shadow-lg"
             >
-              <div className="relative aspect-square overflow-hidden bg-secondary">
+              <div className="relative aspect-square overflow-hidden bg-white">
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="object-contain p-4 transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
               <div className="p-5">

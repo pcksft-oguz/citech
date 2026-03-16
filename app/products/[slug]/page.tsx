@@ -57,12 +57,12 @@ export default async function ProductDetailPage({
       <section className="bg-background pb-20">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2">
-            <div className="relative aspect-square overflow-hidden rounded-lg bg-secondary">
+            <div className="relative aspect-square overflow-hidden rounded-lg bg-white">
               <Image
                 src={product.image}
                 alt={product.name}
                 fill
-                className="object-cover"
+                className="object-contain p-6"
                 priority
               />
             </div>
